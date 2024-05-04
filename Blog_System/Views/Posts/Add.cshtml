@@ -1,0 +1,43 @@
+﻿@model Blog_System.Models.ViewModels.PostAddRequest
+
+<div class="bg-secondary bg-opacity-10 py-2">
+    <div class="container">
+        <h1>Add New Blog Post - User Functionality</h1>
+    </div>
+</div>
+
+<div class="container py-5">
+    <form method="post">
+
+        <div class="mb-3">
+            <label class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" asp-for="Title" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Content</label>
+            <textarea class="form-control" id="content" asp-for="Content"></textarea>
+        </div>
+
+
+        @*        <div class="mb-3">
+        <label class="form-label">CreatedAt</label>
+        <input type="date" class="form-control" id="createdAt" asp-for="CreatedAt" />
+        </div>
+
+        <div class="mb-3">
+        <label class="form-label">UpdatedAt</label>
+        <input type="date" class="form-control" id="updatedAt" asp-for="UpdatedAt" />
+        </div> *@
+
+
+
+        <div class="mb-3">
+            <button type="submit" class="btn btn-dark">
+                Save
+            </button>
+        </div>
+
+
+    </form>
+</div>

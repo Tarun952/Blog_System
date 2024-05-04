@@ -1,0 +1,54 @@
+﻿@model List<Blog_System.Models.Post>
+
+
+<div class="bg-secondary bg-opacity-10 py-2">
+    <div class="container">
+        <h1>All BlogPosts - User Functionality</h1>
+    </div>
+</div>
+
+<div class="container py-5">
+
+    <a asp-controller="Posts" asp-action="Add"> Create</a>
+
+    @if (Model != null && Model.Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Title</td>
+                    <td>Content</td>
+                    <td>Date Published</td>
+                    <td>Last Updated</td>
+                    <td> </td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var blogPost in Model)
+                {
+                    <tr>
+                        <td>@blogPost.PostId</td>
+                        <td>@blogPost.Title</td>
+                        <td>@blogPost.Content</td>
+                        <td>@blogPost.CreatedAt</td>
+                        <td>@blogPost.UpdatedAt</td>
+                        <td>
+                            <a asp-area=""
+                               asp-controller="Posts"
+                               asp-action="Edit"
+                               asp-route-id="@blogPost.PostId">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No Blog Posts Found!</p>
+    }
+
+</div>
