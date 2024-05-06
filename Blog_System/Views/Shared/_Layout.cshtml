@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> signInManager;
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -25,7 +27,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Posts" asp-action="List">Blogs</a>
                         </li>
-
+                        @if (signInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="List">Admin_Dashboard</a>
+                            </li>
+                        }
 
                     </ul>
                 </div>

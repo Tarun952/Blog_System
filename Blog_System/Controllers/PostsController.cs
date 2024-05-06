@@ -61,64 +61,97 @@ namespace Blog_System.Controllers
             return View(blogs);
         }
 
-        [Authorize]
-        public async Task<ActionResult> Edit(int id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
+        //[Authorize]
+        //public async Task<ActionResult> Edit(int id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            var user = await _blogSystemContext.Posts.FindAsync(id);
-            if (user == null)
-            {
-                return NotFound();
-            }
-            return View(user);
+        //    var user = await _blogSystemContext.Posts.FindAsync(id);
+        //    if (user == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return View(user);
 
-        }
+        //}
 
-        [HttpPost]
-        [Authorize]
-        public async Task<IActionResult> Edit(int? id, Post post)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
+        //[HttpPost]
+        //[Authorize]
+        //public async Task<IActionResult> Edit(int? id, Post post)
+        //{
+        //    var user = await userManager.GetUserAsync(User);
+        //    var userId = await _blogSystemContext.Posts.FindAsync(id);
+        //    var UserPostId = userId.UserId;
+        //    if (userId == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    if(user == null)
+        //    {
+        //        return BadRequest();
+        //    }
+        //    if (UserPostId != user.Id)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            var blogPost = await _blogSystemContext.Posts.FindAsync(id);
-            if (blogPost == null)
-            {
-                return NotFound();
-            }
-            blogPost.Title = post.Title;
-            blogPost.Content = post.Content;
-            blogPost.CreatedAt = DateTime.Now;
-            blogPost.UpdatedAt = DateTime.Now;
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            await _blogSystemContext.SaveChangesAsync();
+        //    var blogPost = await _blogSystemContext.Posts.FindAsync(id);
+        //    if (blogPost == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    blogPost.Title = post.Title;
+        //    blogPost.Content = post.Content;
+        //    blogPost.CreatedAt = DateTime.Now;
+        //    blogPost.UpdatedAt = DateTime.Now;
+
+        //    await _blogSystemContext.SaveChangesAsync();
 
 
-            // pass data to view
-            return RedirectToAction("List");
-        }
+        //    // pass data to view
+        //    return RedirectToAction("List");
+        //}
 
-        [HttpPost]
-        [Authorize]
-        public async Task<IActionResult> Delete(int id)
-        {
-            // tell repository to delte
-            var user = await _blogSystemContext.Posts.FindAsync(id);
-            if (user != null)
-            {
-                _blogSystemContext.Posts.Remove(user);
-            }
+        //[HttpPost]
+        //[Authorize]
+        //public async Task<IActionResult> Delete(int id)
+        //{
+        //    // tell repository to delte
+        //    var userr = await userManager.GetUserAsync(User);
+        //    if (userr == null)
+        //    {
+        //        return BadRequest();
+        //    }
+        //    var userId = await _blogSystemContext.Posts.FindAsync(id);
+        //    if (userId == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    var UserPostId = userId.UserId;
+            
+        //    if (UserPostId != userr.Id)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            await _blogSystemContext.SaveChangesAsync();
-            return RedirectToAction("List");
+        //    var user = await _blogSystemContext.Posts.FindAsync(id);
+        //    if (user != null)
+        //    {
+        //        _blogSystemContext.Posts.Remove(user);
+        //    }
 
-        }
+        //    await _blogSystemContext.SaveChangesAsync();
+        //    return RedirectToAction("List");
+
+        //}
 
     }
 }
